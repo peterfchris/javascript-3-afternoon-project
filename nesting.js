@@ -44,13 +44,28 @@ var employees = [
 // Do not edit the code above.
 
 /*
-  Create a function called 'employeeUpdater' that takes no parameters. employeeUpdater will loop over the array above and perform the following:
+  Create a function called 'employeeUpdater' that takes no parameters. employeeUpdater 
+  will loop over the array above and perform the following:
     1. If employee's first name is Theo, remove that employee because he just got fired.
     2. If the employee's first name is Lorie, change her department to 'HR'.
     3. Return the updated employee array.
 */
 
 //Code Here
+function employeeUpdater() {
+  for (i = 0; i < employees.length; i++) {
+    if (employees[i]["firstName"] === 'Theo') {
+      delete employees[i]
+    } else if (employees[i]["firstName"] === "Lorie") {
+      employees[i]["department"] = 'HR'
+    }
+  }
+  return employees
+  }
+
+  // You don't know JS series (1st is the best)
+  // look up if/else statements on MDN
+
 
 
 
@@ -62,13 +77,25 @@ var workplaceAccidents = [12, 56, 44, 3, 29, 56, 56, 3, 7, 12];
 
 /*
   The array above represents IDs tied to reported workplace accidents. 
-  An employee accidentally entered in duplicates to array, making it look as though there are more accidents this year than there actually are.
-    1. Write a function called 'removeDuplicates' that will remove all duplicate entries in the workplaceAccidents array.
+  An employee accidentally entered in duplicates to array, making it look as though there are more accidents 
+  this year than there actually are.
+    1. Write a function called 'removeDuplicates' that will remove all duplicate entries in the 
+    workplaceAccidents array.
     2. Use nested for loops to check for duplicate numbers, and then remove the duplicates from the array.
     3. Return the updated array.
 */
 
 //Code Here
+function removeDuplicates() {
+  for (let i = 0; i < workplaceAccidents.length; i++) {
+    for (let j = i + 1; j < workplaceAccidents.length; j++) {
+      if (workplaceAccidents[i] === workplaceAccidents[j]) {
+        workplaceAccidents.splice(i, 1)
+      }
+    }
+  }
+  return workplaceAccidents
+}
 
 
 
@@ -97,8 +124,8 @@ var cat = {
 */
 
 //Code Here
-var grumpyActivity;
-var fluffy2ndFriend;
+var grumpyActivity = cat.catFriends[0].activities[1];
+var fluffy2ndFriend = cat.catFriends[1].name;
 
 
 
@@ -139,7 +166,20 @@ var myCar = {
 */
 
 //Code Here
-
+function recordCleaner(myCar) {
+  for (let key in myCar) {
+    if (key === 'accidents') {
+    for (i = 0; i < myCar[key].length; i++) {
+      for (let prop in myCar[key][i]) {
+      if (prop === 'atFaultForAccident') {
+        myCar[key][i][prop] = false;
+      }
+    }
+    }
+  }
+}
+  return myCar
+}
 
 
 ////////// PROBLEM 5 //////////
@@ -158,5 +198,17 @@ var numsArr = [ [1, 2, 3, 4], [5, 6], [7, 8, 9, 10, 11]];
 */
 
 //Code Here
+function looper() {
+  for (i = 0; i < numsArr.length; i++) {
+    for (j = 0; j < numsArr[i].length; j++) {
+      if (numsArr[i][j] % 2 === 0) {
+        numsArr[i][j] = 'even'
+      } else {
+        numsArr[i][j] = 'odd'
+      }
+    }
+  }
+  return numsArr
+}
 
 
